@@ -64,6 +64,15 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+    describe('The menu', function() {
+
+        it('is hidden by default', function() {
+            var body = document.querySelector('body');
+
+            expect(body.getAttribute('class')).toContain('menu-hidden');
+        });
+
+    });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
