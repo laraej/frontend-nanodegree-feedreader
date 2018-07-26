@@ -117,4 +117,27 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    describe('New Feed Selection', function() {
+
+        it('changes entries', function(done) {
+            var feed = document.querySelector('.feed');
+
+            loadFeed(0, function() {
+                var entries = feed.querySelectorAll('.entry-link');
+
+                var firstFeedEntryName = entries[0].name;
+
+                loadFeed(1, function() {
+                    var entries = feed.querySelectorAll('.entry-link');
+
+                    var secondFeedEntryName = entries[0].name;
+
+                    expect(firstFeedEntryName).toEqual(secondFeedEntryName);
+
+                    done();
+                });
+            });
+        });
+    });
+
 }());
