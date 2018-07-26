@@ -72,6 +72,19 @@ $(function() {
             expect(body.getAttribute('class')).toContain('menu-hidden');
         });
 
+        it('is shown and hidden by the menu icon', function() {
+            var body = document.querySelector('body');
+            var icon = document.querySelector('.menu-icon-link');
+
+            icon.click();
+
+            expect(body.getAttribute('class')).not.toContain('menu-hidden');
+
+            icon.click();
+
+            expect(body.getAttribute('class')).toContain('menu-hidden');
+        });
+
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
